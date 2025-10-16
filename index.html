@@ -263,6 +263,13 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
+			window.addEventListener("onEmbeddedMessagingReady", () => {
+				const currentUrl = window.location.href;
+				console.log(currentUrl); // Example: https://www.example.com/path/to/page?param1=value1#section            
+				console.log( "Inside Prechat API!!" );
+				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( { "Country" : "us" } );
+			});
+			
 			embeddedservice_bootstrap.init(
 				'00DgL000008XGML',
 				'EV_Agent',
@@ -280,4 +287,5 @@
 
 </body>
 </html>
+
 
